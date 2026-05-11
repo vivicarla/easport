@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@angular/cli": "^21.2.10",
+    "@nestjs/cli": "^11.0.21"
+  }
+}

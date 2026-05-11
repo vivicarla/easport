@@ -14,3 +14,5 @@ export class TimeService {
   registrarVitoria(id: number) { return this.http.patch(`${this.API}/${id}/vitoria`, {}); }
   excluir(id: number) { return this.http.delete(`${this.API}/${id}`); }
 }
+
+export { Tim};

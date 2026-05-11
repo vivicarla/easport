@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TimeController } from './time.controller';
-import { TimeService } from './time.service';
+import { TimesController } from './time.controller';
+import { TimesService } from './time.service';
 
-describe('TimeController', () => {
-  let controller: TimeController;
+describe('TimesController', () => {
+  let controller: TimesController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [TimeController],
-      providers: [TimeService],
+      controllers: [TimesController],
+      providers: [TimesService],
     }).compile();
 
-    controller = module.get<TimeController>(TimeController);
+    controller = module.get<TimesController>(TimesController);
   });
 
   it('should be defined', () => {

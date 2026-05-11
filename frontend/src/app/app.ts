@@ -16,23 +16,23 @@ export class App implements OnInit {
   times: Time[] = [];
   novoTime = { nome: '', jogo: '' };
 
-  constructor(private timeService: TimeService) {}
+  constructor(private timesService: TimeService) {}
 
   ngOnInit() { this.atualizarLista(); }
 
   atualizarLista() {
-    this.timeService.listar().subscribe(res => this.times = res);
+    this.timesService.listar().subscribe(res => this.times = res);
   }
 
   adicionar() {
-    this.timeService.criar(this.novoTime).subscribe(() => {
+    this.timesService.criar(this.novoTime).subscribe(() => {
       this.atualizarLista();
       this.novoTime = { nome: '', jogo: '' };
     });
   }
 
 vitoria(id: number) {
-    this.timeService.registrarVitoria(id).subscribe(() => {
+    this.timesService.registrarVitoria(id).subscribe(() => {
       this.atualizarLista();
       this.soltarFogos(); // Chama o efeito aqui!
     });
@@ -59,6 +59,6 @@ soltarFogos() {
     }, 250);
   }
   remover(id: number) {
-    this.timeService.excluir(id).subscribe(() => this.atualizarLista());
+    this.timesService.excluir(id).subscribe(() => this.atualizarLista());
   }
 }
