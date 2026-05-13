@@ -14,7 +14,7 @@ import confetti from 'canvas-confetti'; // Importe os fogos
 })
 export class App implements OnInit {
   times: Time[] = [];
-  novoTime = { nome: '', jogo: '' };
+  novoTime = { nome: '', jogo: '', pais: '', logo: '' };
 
   constructor(private timesService: TimeService) {}
 
@@ -27,7 +27,7 @@ export class App implements OnInit {
   adicionar() {
     this.timesService.criar(this.novoTime).subscribe(() => {
       this.atualizarLista();
-      this.novoTime = { nome: '', jogo: '' };
+      this.novoTime = { nome: '', jogo: '', pais: '', logo: '' };
     });
   }
 

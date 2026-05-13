@@ -1,100 +1,198 @@
 <div
-  class="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-purple-950 to-black text-white p-4 md:p-8 font-sans">
+  class="min-h-screen bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-pink-500/30 via-fuchsia-950 to-black text-white p-4 md:p-8 font-sans overflow-hidden">
 
-  <header class="text-center mb-12 relative">
-    <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-cyan-500/20 blur-[100px] rounded-full"></div>
-    <h1 class="text-5xl md:text-7xl font-black tracking-tighter italic uppercase italic">
-      <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-fuchsia-500">Torneio</span>
-      <span class="text-white">e-games</span>
+  <!-- Glow Background -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <div class="absolute top-20 left-20 w-72 h-72 bg-pink-500/20 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-fuchsia-600/20 blur-[140px] rounded-full"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="relative text-center mb-16">
+    <h1
+      class="text-5xl md:text-7xl font-black uppercase tracking-tight bg-gradient-to-r from-pink-300 via-fuchsia-400 to-pink-500 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(236,72,153,0.5)]">
+      Pink Arena
     </h1>
-    <p class="text-slate-400 font-mono tracking-widest mt-2">LIGA BRASILEIRA DE JOGOS DIGITAIS</p>
+
+    <p class="mt-3 text-pink-200/70 tracking-[0.4em] text-xs md:text-sm uppercase font-bold">
+      Ultimate E-Games Championship
+    </p>
   </header>
 
-  <div class="max-w-4xl mx-auto backdrop-blur-md bg-white/5 p-1 rounded-2xl border border-white/10 shadow-2xl mb-16">
-    <div class="bg-slate-900/80 p-6 rounded-xl flex flex-col md:flex-row gap-4 items-center">
-      <div class="w-full">
-        <label class="text-[10px] uppercase font-bold text-cyan-500 ml-1">Nome da Equipe</label>
-        <input [(ngModel)]="novoTime.nome" placeholder="Ex: LOUD, Fluxo..."
-          class="w-full bg-slate-800/50 p-4 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 transition-all text-lg">
+  <div
+    class="relative max-w-5xl mx-auto mb-16 rounded-3xl border border-pink-500/20 bg-white/5 backdrop-blur-xl shadow-[0_0_60px_rgba(236,72,153,0.15)] p-6">
+
+    <div class="grid md:grid-cols-3 gap-4">
+
+      <div class="md:col-span-1">
+        <label class="text-[11px] uppercase tracking-widest text-pink-300 font-bold ml-1">
+          Nome da Equipe
+        </label>
+
+        <input
+          [(ngModel)]="novoTime.nome"
+          placeholder="Ex: Queens, Pink Fury..."
+          class="w-full mt-2 bg-pink-950/40 border border-pink-500/20 focus:border-pink-400 focus:ring-2 focus:ring-pink-500/40 outline-none transition-all rounded-2xl px-5 py-4 text-lg placeholder:text-pink-200/30">
+      </div>
+      <div class="md:col-span-1">
+        <label class="text-[11px] uppercase tracking-widest text-pink-300 font-bold ml-1">
+          Logo
+        </label>
+
+        <input
+          [(ngModel)]="novoTime.logo"
+          placeholder="Ex: Os mais mais, Resenhudos..."
+          class="w-full mt-2 bg-pink-950/40 border border-pink-500/20 focus:border-pink-400 focus:ring-2 focus:ring-pink-500/40 outline-none transition-all rounded-2xl px-5 py-4 text-lg placeholder:text-pink-200/30">
       </div>
 
-      <div class="w-full md:w-80">
-        <label class="text-[10px] uppercase font-bold text-cyan-500 ml-1">Selecione a Modalidade</label>
-        <select [(ngModel)]="novoTime.jogo"
-          class="w-full bg-slate-800/50 p-4 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 text-white appearance-none cursor-pointer">
-          <option value="">Selecione o Jogo</option>
-          <option value="Free Fire">Free Fire</option>
+      <div>
+        <label class="text-[11px] uppercase tracking-widest text-pink-300 font-bold ml-1">
+          Modalidade
+        </label>
+
+        <select
+          [(ngModel)]="novoTime.jogo"
+          class="w-full mt-2 bg-pink-950/40 border border-pink-500/20 focus:border-pink-400 focus:ring-2 focus:ring-pink-500/40 outline-none transition-all rounded-2xl px-5 py-4 text-white">
+
+          <option value="">Selecione</option>
           <option value="Valorant">Valorant</option>
-          <option value="Honor of Kings">Honor of Kings</option>
           <option value="League of Legends">League of Legends</option>
-          <option value="Counter-Strike 2">Counter-Strike 2</option>
-          <option value="EA FC 26">EA FC 26</option>
-          <option value="Roblox">Roblox (E-sports)</option>
-          <option value="Mobile Legends">Mobile Legends</option>
-          <option value="Wild Rift">LoL: Wild Rift</option>
-          <option value="Rocket League">Rocket League</option>
+          <option value="Free Fire">Free Fire</option>
+          <option value="CS2">Counter-Strike 2</option>
+          <option value="Wild Rift">Wild Rift</option>
+
         </select>
       </div>
+      <div>
+        <label class="text-[11px] uppercase tracking-widest text-pink-300 font-bold ml-1">
+          País
+        </label>
 
-      <button (click)="adicionar()"
-        class="w-full md:w-auto mt-4 md:mt-4 bg-gradient-to-br from-cyan-500 to-blue-600 hover:from-fuchsia-500 hover:to-purple-600 px-10 py-4 rounded-lg font-black transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.4)]">
-        RECRUTAR
-      </button>
+        <select
+          [(ngModel)]="novoTime.pais"
+          class="w-full mt-2 bg-pink-950/40 border border-pink-500/20 focus:border-pink-400 focus:ring-2 focus:ring-pink-500/40 outline-none transition-all rounded-2xl px-5 py-4 text-white">
+
+          <option value="">Selecione</option>
+          <option value="Brasil">Brasil</option>
+          <option value="EUA">EUA</option>
+          <option value="UK">UK</option>
+          <option value="México">México</option>
+          <option value="Canadá">Canadá</option>
+
+        </select>
+      </div>
+  
+
+
+      <div class="flex items-end">
+        <button
+          (click)="adicionar()"
+          class="w-full py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-fuchsia-500 to-pink-600 hover:scale-105 active:scale-95 transition-all duration-300 font-black uppercase tracking-widest shadow-[0_0_25px_rgba(236,72,153,0.5)]">
+
+          ✦ Recrutar
+        </button>
+      </div>
+
     </div>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-    <div *ngFor="let t of times"
-      class="group relative bg-slate-900 border border-white/10 p-6 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2">
+
+  <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+    <div
+      *ngFor="let t of times"
+      class="group relative rounded-3xl overflow-hidden border border-pink-500/10 bg-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3 hover:border-pink-400/40 shadow-[0_0_40px_rgba(236,72,153,0.08)]">
 
       <div
-        class="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-fuchsia-500 opacity-0 group-hover:opacity-100 transition duration-500 blur">
+        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-pink-500/10 via-fuchsia-500/10 to-transparent">
       </div>
 
-      <div class="relative bg-slate-900 rounded-[22px] p-6 h-full flex flex-col justify-between">
+      <div class="relative p-6 flex flex-col h-full">
 
         <div class="flex justify-between items-start">
+
           <span
-            class="text-[10px] font-black px-3 py-1 bg-white/10 rounded-full border border-white/20 tracking-tighter">
+            class="px-4 py-1 rounded-full bg-pink-500/10 border border-pink-400/20 text-pink-200 text-[10px] uppercase tracking-widest font-bold">
             {{ t.jogo }}
           </span>
-          <button (click)="remover(t.id)" class="text-slate-600 hover:text-red-500 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd" />
-            </svg>
+
+          <button
+            (click)="remover(t.id)"
+            class="text-pink-200/40 hover:text-red-400 hover:rotate-90 transition-all duration-300">
+
+            ✕
           </button>
+
         </div>
 
-        <h2 class="text-3xl font-black mt-4 truncate tracking-tight">{{ t.nome }}</h2>
+        <h2 class="mt-6 text-4xl font-black tracking-tight text-white truncate">
+          {{ t.nome }}
+        </h2>
 
-        <div class="mt-8 flex justify-between items-center bg-black/40 p-4 rounded-2xl border border-white/5">
+        <!-- Stats -->
+        <div
+          class="mt-8 rounded-2xl bg-black/30 border border-pink-500/10 p-5 flex justify-between items-center">
+
           <div>
-            <p class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">Patente Atual</p>
-            <p class="text-xl font-black italic" [ngClass]="{
-                'text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]': t.rank === 'Ouro',
-                'text-slate-300': t.rank === 'Prata',
-                'text-orange-700': t.rank === 'Bronze'
+            <p class="text-[10px] uppercase tracking-[0.3em] text-pink-300/50 font-bold">
+              Rank
+            </p>
+
+            <p
+              class="text-2xl font-black italic"
+              [ngClass]="{
+                'text-yellow-300 drop-shadow-[0_0_10px_rgba(253,224,71,0.7)]': t.rank === 'Ouro',
+                'text-gray-200 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]': t.rank === 'Prata',
+                'text-orange-400 drop-shadow-[0_0_10px_rgba(251,146,60,0.5)]': t.rank === 'Bronze'
               }">
+
               {{ t.rank }}
+
             </p>
           </div>
 
           <div class="text-center">
-            <p class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">Vitórias</p>
-            <p class="text-2xl font-mono font-bold">{{ t.vitorias }}</p>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-pink-300/50 font-bold">
+              Wins
+            </p>
+
+            <p class="text-4xl font-black text-pink-200">
+              {{ t.vitorias }}
+            </p>
           </div>
+
         </div>
 
-        <button (click)="vitoria(t.id)" class="mt-6 w-full py-4 rounded-xl font-black uppercase text-sm tracking-widest transition-all 
-         bg-gradient-to-r from-slate-800 to-slate-900 
-         hover:from-cyan-500 hover:to-fuchsia-600 hover:scale-105 active:scale-95
-         border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.5)] 
-         hover:shadow-[0_0_20px_rgba(192,38,211,0.4)] text-white group">
-          <span class="group-hover:animate-pulse">🏆 Registrar Vitória</span>
+        <button
+          (click)="vitoria(t.id)"
+          class="mt-8 w-full rounded-2xl py-4 uppercase tracking-[0.2em] font-black
+          bg-gradient-to-r from-pink-500 to-fuchsia-600
+          hover:from-fuchsia-500 hover:to-pink-500
+          transition-all duration-300
+          hover:scale-105 active:scale-95
+          shadow-[0_0_30px_rgba(236,72,153,0.4)]">
+
+          🏆 Registrar Vitória
+
         </button>
+
       </div>
     </div>
+
   </div>
+
+  <div
+    *ngIf="times.length === 0"
+    class="relative text-center mt-20 text-pink-200/50">
+
+    <h2 class="text-4xl font-black">
+      Nenhuma equipe cadastrada
+    </h2>
+
+    <p class="mt-3 tracking-wider uppercase text-sm">
+      Monte o primeiro squad da Pink Arena
+    </p>
+
+  </div>
+
 </div>
